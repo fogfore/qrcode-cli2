@@ -9,43 +9,56 @@ Page({
     addrInfo: null,
   },
   onLoad: function (options) {
-    console.log(options)
+    const addrId = options.addrId
+    let that = this
+    if (addrId) {
+      // 获取地址信息
+      this.getAddrInfo(addrId)
+      // 获取权限信息
+      this.getAddrAuth(addrId)
+    }
+  },
+  getAddrAuth: function (addrId) {
+    let that = this
+    wx.cloud.callFunction({
+      name: 'getAddrAuth',
+      data: {
+        addrId: addrId
+      }
+    }).then(res => {
+      if (res.result.auth) {
+        that.setData({
+          auth: res.result.auth
+        })
+      }
+    }).catch(res => {
+      wx.redirectTo({
+        url: '../../error/error?title=获取权限信息失败&desc=系统错误，请稍后重试',
+      })
+    })
+  },
+  getAddrInfo: function (addrId) {
     let that = this
     const db = wx.cloud.database()
-    db.collection('addr').where({
-      _id: options.addrId
-    }).get({
-      success: res => {
-        console.log(res)
-        console.log(res.data.length)
-        if (res.data.length == 1) {
-          console.log('开始设置')
-          console.log(res.data[0]._openid + ' ' + app.globalData.openid)
-          // console.log(res.data[0].visitors.indexOf(app.globalData.openid))
-          let auth = 3
-          // if (res.data[0]._openid == app.globalData.openid) {
-          //   auth = 1
-          // } else if (res.data[0].visitors.indexOf(app.globalData.openid) > -1) {
-          //   auth = 2
-          // }
-          console.log('设置参数')
-          that.setData({
-            auth: auth,
-            addrInfo: res.data[0]
-          })
-          wx.setNavigationBarTitle({
-            title: res.data[0].name,
-          })
-          app.globalData.addrInfo = res.data[0]
-          console.log(that.data)
-        }
+    db.collection('addr').doc(addrId).get().then(res => {
+      if (res.data) {
+        that.setData({
+          addrInfo: res.data
+        })
       }
+    }).catch(res => {
+      wx.redirectTo({
+        url: '../../error/error?title=获取地址信息失败&desc=系统错误，请稍后重试',
+      })
     })
   },
   dealAuth: function () {
 
   },
   delAddr: function () {
+    if (this.data.auth != 1) {
+      return
+    }
 
   }
 })

@@ -11,7 +11,7 @@
 	</block>
 	<block wx:if="{{auth==1}}">
 		<navigator url="./addvisitor/addvisitor">
-			<mp-cell title="添加用户">
+			<mp-cell title="添加访客">
 				<view slot="footer" class="item-array">></view>
 			</mp-cell>
 		</navigator>
