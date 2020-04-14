@@ -1,0 +1,21 @@
+<!-- <recycle-view batch="{{batchSetRecycleData}}" id="recycleId">
+	<recycle-item wx:for="{{addrs}}" wx:key="_id">
+		<navigator url="{{'./addrinfo/addrinfo?addrId=' + item._id}}">
+			<mp-cell title="{{item.name}}">
+				<image slot="icon" src="../../images/avatar.png" class="item-image"></image>
+			</mp-cell>
+		</navigator>
+	</recycle-item>
+</recycle-view> -->
+<scroll-view scroll-y="true" scroll-with-animation="true" enable-back-to-top="true" bindscrolltolower="scrollToLower" style="height: 100%" refresher-enabled="true" refresher-triggered="{{pullRefresh}}" bindrefresherrefresh="onPullRefresh">
+	<mp-cells wx:for="{{addrs}}" wx:key="{{_id}}">
+		<navigator url="{{'./addrinfo/addrinfo?addrId=' + item._id}}">
+			<mp-cell title="{{item.name}}">
+				<image slot="icon" src="../../images/avatar.png" class="item-image"></image>
+			</mp-cell>
+		</navigator>
+	</mp-cells>
+	<view class="bottom">
+		{{loadMoreTip}}
+	</view>
+</scroll-view>

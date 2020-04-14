@@ -1,0 +1,12 @@
+<mp-cells>
+	<mp-cell title="名字">
+		<input slot="footer" type="text" placeholder="输入名字" maxlength="6" bindinput="inputName"></input>
+	</mp-cell>
+	<mp-cell title="位置">
+		<textarea slot="footer" placeholder="输入位置" maxlength="100" auto-height="true" bindinput="inputLocation"></textarea>
+	</mp-cell>
+  <mp-cell title="描述">
+		<textarea slot="footer" placeholder="添加描述" maxlength="100" auto-height="true" bindinput="inputDesc"></textarea>
+	</mp-cell>
+</mp-cells>
+<button class="saveBtn" type="primary" loading="{{loading}}" bindtap="saveAddr">保存</button>

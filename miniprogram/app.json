@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/my/userinfo/userinfo",
+    "pages/index/addrinfo/addrinfo",
+    "pages/index/addrinfo/addvisitor/addvisitor",
+    "pages/visitorlist/visitorlist",
+    "pages/my/addaddr/addaddr",
+    "pages/credential/credential",
+    "pages/visitorinfo/visitorinfo",
+    "pages/success/success",
+    "pages/error/error"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "二维码认证系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/home_yes.png",
+        "iconPath": "images/home_no.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/me_yes.png",
+        "iconPath": "images/me_no.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

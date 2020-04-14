@@ -1,0 +1,6 @@
+/* pages/addaddr/addaddr.wxss */
+@import "../../../style/common.wxss";
+
+.saveBtn{
+  margin-top: 10px;
+}

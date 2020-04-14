@@ -1,0 +1,15 @@
+<mp-cells>
+	<mp-cell title="头像">
+		<image slot="footer" src="{{visitor.avatarUrl}}" mode="cover" class="visitor-avatar"></image>
+	</mp-cell>
+	<mp-cell title="昵称" footer="{{visitor.nickName}}"></mp-cell>
+	<mp-cell title="姓名" footer="{{visitor.realName}}"></mp-cell>
+	<mp-cell title="手机号" footer="{{visitor.phone}}"></mp-cell>
+	<mp-cell title="昵称" footer="{{visitor.nickName}}"></mp-cell>
+	<block wx:if="{{permitVisit}}">
+		<mp-cell title="权限" footer="允许访问"></mp-cell>
+	</block>
+	<block wx:else>
+		<mp-cell title="权限" footer="拒绝访问"></mp-cell>
+	</block>
+</mp-cells>

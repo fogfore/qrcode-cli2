@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="head">
+	<button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权</button>
+	<navigator wx:else url="./userinfo/userinfo" class="userinfo">
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+	</navigator>
+</view>
+<mp-cells>
+	<navigator url="./addaddr/addaddr">
+		<mp-cell title="新增地点">
+			<image slot="icon" src="/images/add.png" class="item-image"></image>
+			<view slot="footer" class="item-array">></view>
+		</mp-cell>
+	</navigator>
+
+	<navigator url="#">
+		<mp-cell title="设置">
+			<image slot="icon" src="/images/setting.png" class="item-image"></image>
+			<view slot="footer" class="item-array">></view>
+		</mp-cell>
+	</navigator>
+
+	<navigator url="#">
+		<mp-cell title="关于">
+			<image slot="icon" src="/images/abort.png" class="item-image"></image>
+			<view slot="footer" class="item-array">></view>
+		</mp-cell>
+	</navigator>
+</mp-cells>

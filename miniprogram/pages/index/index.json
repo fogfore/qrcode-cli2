@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog",
+    "mp-cell": "/miniprogram_npm/weui-miniprogram/cell/cell",
+    "mp-cells": "/miniprogram_npm/weui-miniprogram/cells/cells",
+    "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview",
+    "recycle-view": "/miniprogram_npm/miniprogram-recycle-view/recycle-view",
+    "recycle-item": "/miniprogram_npm/miniprogram-recycle-view/recycle-item"
+  },
+  "enablePullDownRefresh": true
+}

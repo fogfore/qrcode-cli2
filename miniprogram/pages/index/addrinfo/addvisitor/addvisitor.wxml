@@ -1,0 +1,12 @@
+<!--pages/addvisitor/addvisitor.wxml-->
+<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+<view wx:if="{{showUserInfo}}">
+	<mp-cells>
+		<mp-cell title="头像">
+			<image slot="footer" class="item-image" src="{{userInfo.avatarUrl}}"></image>
+		</mp-cell>
+		<mp-cell title="姓名" footer="{{userInfo.realName}}"></mp-cell>
+		<mp-cell title="手机号" footer="{{userInfo.phone}}"></mp-cell>
+	</mp-cells>
+	<button class="addVisitorBtn" type="primary" loading="{{loading}}" bindtap="addVisitor">添加</button>
+</view>

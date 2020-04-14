@@ -1,0 +1,13 @@
+@import "../../style/common.wxss";
+
+.item-image {
+  margin-right: 16px;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px
+}
+
+.bottom {
+  color: #b3b3b3;
+  text-align: center;
+}

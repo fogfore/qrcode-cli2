@@ -1,0 +1,5 @@
+<mp-msg type="warn" title="{{title}}" desc="{{desc}}">
+	<view slot="handle">
+		<button type="primary" bindtap="okBtn">确认</button>
+	</view>
+</mp-msg>

@@ -1,0 +1,9 @@
+<mp-cells>
+	<mp-cell title="姓名">
+		<input slot="footer" type="text" value="{{realUserInfo.realName}}" placeholder="输入姓名" maxlength="6" bindinput="inputRealName"></input>
+	</mp-cell>
+	<mp-cell title="手机号">
+		<input slot="footer" type="number" value="{{realUserInfo.phone}}" placeholder="输入手机号" maxlength="11" bindinput="inputPhone"></input>
+	</mp-cell>
+</mp-cells>
+<button class="save-btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="saveUserInfo">保存</button>
