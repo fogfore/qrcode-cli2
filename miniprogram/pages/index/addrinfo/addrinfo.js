@@ -59,6 +59,29 @@ Page({
     if (this.data.auth != 1) {
       return
     }
-
+    wx.cloud.callFunction({
+      name: 'delAddr',
+      data: {
+        addrId: this.data.addrInfo._id
+      }
+    }).then(res => {
+      if (res.result.code == '200') {
+        wx.switchTab({
+          url: '../index',
+          success: function () {
+            var page = getCurrentPages().pop();
+            if (page) page.onLoad();
+          }
+        })
+        wx.showToast({
+          icon: 'success',
+          title: '删除地址成功',
+        })
+      }
+    }).catch(res => {
+      wx.redirectTo({
+        url: '../../error/error?title=删除地址失败&desc=系统错误，请稍后重试',
+      })
+    })
   }
 })
