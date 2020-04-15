@@ -45,6 +45,7 @@ Page({
         that.setData({
           addrInfo: res.data
         })
+        app.globalData.addrInfo = res.data
       }
     }).catch(res => {
       wx.redirectTo({

@@ -1,3 +1,5 @@
+import {login} from '../../utils/login.js'
+
 const app = getApp()
 
 Page({
@@ -21,21 +23,12 @@ Page({
       })
 
       // 登录
-      this.login()
+      login(e.detail.userInfo)
     } else {
       wx.showToast({
         icon: 'none',
         title: '授权失败',
       })
     }
-  },
-  login: function () {
-    wx.cloud.callFunction({
-      name: 'login'
-    }).catch(res => {
-      wx.navigateTo({
-        url: '../error/error?title=系统错误&desc=系统错误，稍后重试',
-      })
-    })
   }
 })

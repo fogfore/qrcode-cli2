@@ -1,4 +1,8 @@
 //app.js
+import {
+  login
+} from './utils/login.js'
+
 App({
   onLaunch: function () {
     wx.cloud.init({
@@ -12,23 +16,14 @@ App({
           wx.getUserInfo({
             success: res => {
               this.globalData.userInfo = res.userInfo
+              login(res.userInfo)
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
             }
           })
-          this.login()
         }
       }
-    })
-  },
-  login: function () {
-    wx.cloud.callFunction({
-      name: 'login'
-    }).catch(res => {
-      wx.redirectTo({
-        url: '../error/error?title=系统错误&desc=系统错误，稍后重试',
-      })
     })
   },
   globalData: {

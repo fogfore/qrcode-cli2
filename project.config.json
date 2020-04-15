@@ -25,7 +25,7 @@
 	},
 	"appid": "wxbfc9c10491e1b240",
 	"projectname": "qrcode-cli2",
-	"libVersion": "2.10.3",
+	"libVersion": "2.11.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
