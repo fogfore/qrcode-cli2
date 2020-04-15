@@ -9,22 +9,28 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
 
   try {
-    const userInfo = await db.collection('user').where({
+    const userInfoRes = await db.collection('user').where({
       openId: wxContext.OPENID
     }).get()
 
-    if (userInfo.data.length == 0) {
-      return await db.collection('user').add({
-        data: {
-          openId: wxContext.OPENID,
-          createTime: new Date(),
-          updateTime: new Date()
-        }
+    let newUser = {
+      updateTime: new Date()
+    }
+    Object.assign(newUser, event.userInfo)
+    if (userInfoRes.data) {
+      const updateRes = await db.collection('user').doc(userInfoRes.data[0]._id).update({
+        data: newUser
+      })
+    } else {
+      newUser.openId = wxContext.OPENID
+      newUser.createTime = newUser.updateTime
+      const addRes = await db.collection('user').add({
+        data: newUser
       })
     }
 
     return {
-      userId: userInfo.data._id
+      code: '200'
     }
   } catch (e) {
     console.error('登录失败', e)
