@@ -1,5 +1,5 @@
 /* pages/visitorlist/visitorlist.wxss */
-@import "../../style/common.wxss";
+@import "../../../../style/common.wxss";
 
 .item-image {
   margin-right: 16px;

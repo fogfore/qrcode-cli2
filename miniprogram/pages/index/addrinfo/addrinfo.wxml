@@ -15,7 +15,7 @@
 				<view slot="footer" class="item-array">></view>
 			</mp-cell>
 		</navigator>
-		<navigator url="">
+		<navigator url="./visitorlist/visitorlist">
 			<mp-cell title="访客列表">
 				<view slot="footer" class="item-array">></view>
 			</mp-cell>

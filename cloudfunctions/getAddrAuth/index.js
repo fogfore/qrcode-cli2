@@ -9,32 +9,28 @@ cloud.init({
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const db = cloud.database()
-  if (event.addrId == undefined || event.addrId == null || event.addrId == '') {
-    return {
-      auth: 3
-    }
-  }
 
   try {
     const userInfoRes = await db.collection('user').where({
       openId: wxContext.OPENID
     }).get()
 
-    if (userInfoRes.data) {
+    if (userInfoRes.data.length == 1) {
       const addrAuthRes = await db.collection('addr_auth').where({
         addrId: event.addrId,
-        userId: userInfoRes.data._id
+        userId: userInfoRes.data[0]._id
       }).get()
 
-      if (addrAuthRes.data) {
+      if (addrAuthRes.data.length == 1) {
         return {
+          userInfo: userInfoRes.data[0],
           auth: addrAuthRes.data[0].auth
         }
       }
     }
 
     return {
-      auth: 3
+      auth: '3'
     }
 
   } catch (e) {

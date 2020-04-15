@@ -1,7 +1,7 @@
 <!--pages/visitorlist/visitorlist.wxml-->
 <mp-cells wx:for="{{visitors}}" wx:key="{{id}}">
-  <mp-slideview buttons="{{item.slideBtns}}" bindbuttontap="slideButtonTap">
-    <mp-cell title="{{item.realName}}">
+  <mp-slideview buttons="{{item.slideBtn}}" bindbuttontap="slideButtonTap">
+    <mp-cell title="{{item.realName}}" footer="{{item.phone}}">
 				<image slot="icon" src="{{item.avatarUrl}}" class="item-image"></image>
     </mp-cell>
   </mp-slideview>
